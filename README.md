@@ -9,14 +9,18 @@ Set Neovim Qt file type associations and add `Edit with Neovim` / `Open Neovim h
 
 ## Adding
 
-Run `setup-add.cmd` as an administrator adds
- - Neovim Qt `ProgID` and file types associations
+Running `setup-add.cmd` as and Administrator user adds
+ - Neovim Qt `ProgID` and file types associations,
  - `Edit with Neovim` / `Open Neovim here` option to right-click context menu items
 
+to Windows Registry.
+
 ## Removal
-Run `setup-remove.cmd` script as an administrator removes
-- Neovim Qt `ProgID` and file type associations
+Running `setup-remove.cmd` script as an Administrator user removes
+- Neovim Qt `ProgID` and file type associations,
 - `Edit with Neovim` / `Open Neovim here` option from right-click context menu items
+
+from Windows Registry.
 
 ## General information
 
