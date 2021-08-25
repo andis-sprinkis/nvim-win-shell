@@ -3,11 +3,11 @@ setlocal
 
 set contextMenuIconString=Edit with Neovim
 set contextMenuBackgroundString=Open Neovim here
-set nvimQtExeString=nvim-qt.exe
+set programExeString=nvim-qt.exe
 
 echo[
-echo Removing %nvimQtExeString% ProgID and coresponding file type associations...
-reg delete "HKCR\Applications\%nvimQtExeString%" /f
+echo Removing %programExeString% ProgID and coresponding file type associations...
+reg delete "HKCR\Applications\%programExeString%" /f
 
 echo[
 echo Removing Explorer icon ^& background '%contextMenuIconString%' right click context menu items...

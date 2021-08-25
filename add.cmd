@@ -7,19 +7,19 @@ set setUserFTADir=%~dp0SetUserFTA
 set setUserFTAExe=%setUserFTADir%\SetUserFTA\SetUserFTA.exe
 set setUserFTAURL=https://kolbi.cz/SetUserFTA.zip
 set downloadCMD=bitsadmin /transfer myDownloadJob /download /priority normal
-set nvimQtExePathFile=%~dp0path.txt
-set nvimQtFileAssociationsFile=%~dp0filetypes.txt
+set programExePathFile=%~dp0path.txt
+set programFileAssociationsFile=%~dp0filetypes.txt
 set contextMenuIconString=Edit with Neovim
 set contextMenuBackgroundString=Open Neovim here
-set nvimQtExeString=nvim-qt.exe
+set programExeString=nvim-qt.exe
 
-for /f %%a in (%nvimQtExePathFile%) do (
-  set nvimQtExePath=%%a
+for /f %%a in (%programExePathFile%) do (
+  set programExePath=%%a
   break
 )
 
 echo[
-echo Setting up SetUserFTA utility to add %nvimQtExeString% ProgID file type associations...
+echo Setting up SetUserFTA utility to add %programExeString% ProgID file type associations...
 :SetUserFTASetup
 if exist %setUserFTAExe% (
   goto :MainSetup
@@ -40,20 +40,20 @@ if exist %setUserFTAExe% (
 
 echo[
 echo Setting nvim-qt.exe ProgID...
-reg add "HKCR\Applications\%nvimQtExeString%\shell\open\command" /t REG_SZ /d "%nvimQtExePath% ""%%1""" /f
+reg add "HKCR\Applications\%programExeString%\shell\open\command" /t REG_SZ /d "%programExePath% ""%%1""" /f
 
 echo[
 echo Setting Explorer icon ^& background '%contextMenuIconString%' right click context menu option...
-reg add "HKCR\AllFilesystemObjects\shell\%contextMenuIconString%" /v Icon /t REG_SZ /d "%nvimQtExePath%" /f
-reg add "HKCR\AllFilesystemObjects\shell\%contextMenuIconString%\command" /t REG_SZ /d "%nvimQtExePath% ""%%1""" /f
-reg add "HKCR\Drive\shell\%contextMenuIconString%" /v Icon /t REG_SZ /d "%nvimQtExePath%" /f
-reg add "HKCR\Drive\shell\%contextMenuIconString%\command" /t REG_SZ /d "%nvimQtExePath% ""%%1""" /f
-reg add "HKCR\Directory\Background\shell\%contextMenuBackgroundString%" /v Icon /t REG_SZ /d "%nvimQtExePath%" /f
-reg add "HKCR\Directory\Background\shell\%contextMenuBackgroundString%\command" /t REG_SZ /d "%nvimQtExePath% ""%%V""" /f
+reg add "HKCR\AllFilesystemObjects\shell\%contextMenuIconString%" /v Icon /t REG_SZ /d "%programExePath%" /f
+reg add "HKCR\AllFilesystemObjects\shell\%contextMenuIconString%\command" /t REG_SZ /d "%programExePath% ""%%1""" /f
+reg add "HKCR\Drive\shell\%contextMenuIconString%" /v Icon /t REG_SZ /d "%programExePath%" /f
+reg add "HKCR\Drive\shell\%contextMenuIconString%\command" /t REG_SZ /d "%programExePath% ""%%1""" /f
+reg add "HKCR\Directory\Background\shell\%contextMenuBackgroundString%" /v Icon /t REG_SZ /d "%programExePath%" /f
+reg add "HKCR\Directory\Background\shell\%contextMenuBackgroundString%\command" /t REG_SZ /d "%programExePath% ""%%V""" /f
 
 echo[
 echo Setting the file type associations...
-%setUserFTAExe% %nvimQtFileAssociationsFile%
+%setUserFTAExe% %programFileAssociationsFile%
 
 echo[
 echo FINISHED
