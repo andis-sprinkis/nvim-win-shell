@@ -1,25 +1,20 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 cd /d %~dp0
 
+call %~dp0%1
 set setUserFTAZip=%~dp0SetUserFTA.zip
 set setUserFTADir=%~dp0SetUserFTA
 set setUserFTAExe=%setUserFTADir%\SetUserFTA\SetUserFTA.exe
 set setUserFTAURL=https://kolbi.cz/SetUserFTA.zip
 set downloadCMD=bitsadmin /transfer myDownloadJob /download /priority normal
-set programExePathFile=%~dp0path.txt
 set programFileAssociationsFile=%~dp0filetypes.txt
-set contextMenuIconString=Edit with Neovim
-set contextMenuBackgroundString=Open Neovim here
-set programExeString=nvim-qt.exe
-
-for /f %%a in (%programExePathFile%) do (
-  set programExePath=%%a
-  break
-)
+set contextMenuIconString=Edit with %programName%
+set contextMenuBackgroundString=Open %programName% here
+set programProgId=Applications\%programExeFilename%
 
 echo[
-echo Setting up SetUserFTA utility to add %programExeString% ProgID file type associations...
+echo Setting up SetUserFTA utility to add %programExeFilename% ProgID file type associations...
 :SetUserFTASetup
 if exist %setUserFTAExe% (
   goto :MainSetup
@@ -39,21 +34,21 @@ if exist %setUserFTAExe% (
 :MainSetup
 
 echo[
-echo Setting nvim-qt.exe ProgID...
-reg add "HKCR\Applications\%programExeString%\shell\open\command" /t REG_SZ /d "%programExePath% ""%%1""" /f
+echo Setting %programProgId% ProgID...
+reg add "HKCR\Applications\%programExeFilename%\shell\open\command" /t REG_SZ /d "%programExePath% ""%%1""" /f
 
 echo[
 echo Setting Explorer icon ^& background '%contextMenuIconString%' right click context menu option...
-reg add "HKCR\AllFilesystemObjects\shell\%contextMenuIconString%" /v Icon /t REG_SZ /d "%programExePath%" /f
+reg add "HKCR\AllFilesystemObjects\shell\%contextMenuIconString%" /v Icon /t REG_SZ /d "%iconPath%" /f
 reg add "HKCR\AllFilesystemObjects\shell\%contextMenuIconString%\command" /t REG_SZ /d "%programExePath% ""%%1""" /f
-reg add "HKCR\Drive\shell\%contextMenuIconString%" /v Icon /t REG_SZ /d "%programExePath%" /f
+reg add "HKCR\Drive\shell\%contextMenuIconString%" /v Icon /t REG_SZ /d "%iconPath%" /f
 reg add "HKCR\Drive\shell\%contextMenuIconString%\command" /t REG_SZ /d "%programExePath% ""%%1""" /f
-reg add "HKCR\Directory\Background\shell\%contextMenuBackgroundString%" /v Icon /t REG_SZ /d "%programExePath%" /f
+reg add "HKCR\Directory\Background\shell\%contextMenuBackgroundString%" /v Icon /t REG_SZ /d "%iconPath%" /f
 reg add "HKCR\Directory\Background\shell\%contextMenuBackgroundString%\command" /t REG_SZ /d "%programExePath% ""%%V""" /f
 
 echo[
 echo Setting the file type associations...
-%setUserFTAExe% %programFileAssociationsFile%
+for /F "tokens=*" %%A in (%programFileAssociationsFile%) do %setUserFTAExe% .%%A %programProgId%
 
 echo[
 echo FINISHED

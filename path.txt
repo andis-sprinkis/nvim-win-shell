@@ -1,1 +1,0 @@
-D:\\win\\scoop-app\\apps\\neovim\\current\\bin\\nvim-qt.exe
