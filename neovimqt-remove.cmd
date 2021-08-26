@@ -1,1 +1,1 @@
-call %~dp0fn-remove.cmd neovimqt-config.cmd
+call %~dp0common\remove.cmd neovimqt-config.cmd

@@ -1,1 +1,1 @@
-call %~dp0fn-add.cmd neovimqt-config.cmd
+call %~dp0common\add.cmd neovimqt-config.cmd

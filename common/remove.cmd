@@ -1,10 +1,11 @@
 @echo off
 setlocal enabledelayedexpansion
 
-call %~dp0%1
+call %~dp0..\%1
 set contextMenuIconString=Edit with %programName%
 set contextMenuBackgroundString=Open %programName% here
 set programProgId=Applications\%programExeFilename%
+set programFileAssociationsFile=%~dp0..\filetypes.txt
 
 echo[
 echo Removing %programExeFilename% ProgID and coresponding file type associations...

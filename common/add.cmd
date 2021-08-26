@@ -2,13 +2,13 @@
 setlocal enabledelayedexpansion
 cd /d %~dp0
 
-call %~dp0%1
+call %~dp0..\%1
 set setUserFTAZip=%~dp0SetUserFTA.zip
 set setUserFTADir=%~dp0SetUserFTA
 set setUserFTAExe=%setUserFTADir%\SetUserFTA\SetUserFTA.exe
 set setUserFTAURL=https://kolbi.cz/SetUserFTA.zip
 set downloadCMD=bitsadmin /transfer myDownloadJob /download /priority normal
-set programFileAssociationsFile=%~dp0filetypes.txt
+set programFileAssociationsFile=%~dp0..\filetypes.txt
 set contextMenuIconString=Edit with %programName%
 set contextMenuBackgroundString=Open %programName% here
 set programProgId=Applications\%programExeFilename%

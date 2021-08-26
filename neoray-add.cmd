@@ -1,1 +1,1 @@
-call %~dp0fn-add.cmd neoray-config.cmd
+call %~dp0common\add.cmd neoray-config.cmd
