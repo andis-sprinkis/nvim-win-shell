@@ -4,8 +4,8 @@ Neovim file type associations, "Edit with Neovim" / "Open Neovim here" context m
 
 ## Configuration
 
-- `{nvim-client}-config.cmd` — configure Neovim client & icon paths and exact program name
-- `filetypes.txt` — set list of file name extensions that will be associated with the Neovim client
+- `{nvim-client}-config.cmd` — edit to configure Neovim client & icon paths and exact program name
+- `filetypes.txt` — edit to set list of file name extensions that will be associated with the Neovim client
 
 
 ## Adding
