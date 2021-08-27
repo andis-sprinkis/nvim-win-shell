@@ -46,9 +46,11 @@ reg add "HKCR\Drive\shell\%contextMenuIconString%\command" /t REG_SZ /d "%progra
 reg add "HKCR\Directory\Background\shell\%contextMenuBackgroundString%" /v Icon /t REG_SZ /d "%iconPath%" /f
 reg add "HKCR\Directory\Background\shell\%contextMenuBackgroundString%\command" /t REG_SZ /d "%programExePath% ""%%V""" /f
 
-echo[
-echo Setting the file type associations...
-for /F "tokens=*" %%A in (%programFileAssociationsFile%) do %setUserFTAExe% .%%A %programProgId%
+if "%applyFileTypeAssociations%"=="1" (
+  echo[
+  echo Setting the file type associations...
+  for /F "tokens=*" %%A in (%programFileAssociationsFile%) do %setUserFTAExe% .%%A %programProgId%
+)
 
 echo[
 echo FINISHED
