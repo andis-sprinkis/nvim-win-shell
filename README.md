@@ -1,6 +1,6 @@
 # nvim-win-shell
 
-Set Neovim client (Neovim Qt, Neoray) file type associations and add `Edit with {nvim-client}` / `Open {nvim-client} here` right click context menu items on Windows.
+Neovim file type associations, "Edit with Neovim" / "Open Neovim here" context menu items on Windows.
 
 ## Configuration
 
