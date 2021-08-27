@@ -2,6 +2,12 @@
 setlocal enabledelayedexpansion
 
 call %~dp0..\%1
+
+if not exist %~dp0..\%1 (
+  echo Specified config file "%1" is not found.
+  goto :Error
+)
+
 set contextMenuIconString=Edit with %programName%
 set contextMenuBackgroundString=Open %programName% here
 set programProgId=Applications\%programExeFilename%
@@ -17,6 +23,10 @@ echo Removing Explorer icon ^& background '%contextMenuIconString%' right click 
 reg delete "HKCR\AllFilesystemObjects\shell\%contextMenuIconString%" /f
 reg delete "HKCR\Drive\shell\%contextMenuIconString%" /f
 reg delete "HKCR\Directory\Background\shell\%contextMenuBackgroundString%" /f
+
+:Error
+endlocal
+exit /B 1
 
 echo[
 echo FINISHED

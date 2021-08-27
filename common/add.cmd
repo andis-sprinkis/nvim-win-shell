@@ -2,6 +2,11 @@
 setlocal enabledelayedexpansion
 cd /d %~dp0
 
+if not exist %~dp0..\%1 (
+  echo Specified config file "%1" is not found.
+  goto :Error
+)
+
 call %~dp0..\%1
 set setUserFTAZip=%~dp0SetUserFTA.zip
 set setUserFTADir=%~dp0SetUserFTA
@@ -29,6 +34,7 @@ if exist %setUserFTAExe% (
   echo - Downloading SetUserFTA utility...
   %downloadCMD% %setUserFTAURL% %setUserFTAZip%
   goto :SetUserFTASetup
+)
 )
 
 :MainSetup
@@ -72,4 +78,11 @@ set vbs="%temp%\unzip.vbs"
 cscript //nologo %vbs%
 if exist %vbs% del /f /q %vbs%
 
-exit /B 0
+:Error
+endlocal
+exit /B 1
+
+echo[
+echo FINISHED
+endlocal
+exit /B %errorlevel%
