@@ -2,7 +2,7 @@
 
 Run `*-add.cmd` or `*-remove.cmd` as a Windows Administrator user to toggle
  - respective Neovim client program ID and file type associations
- - "Edit with *Neovim client*", "Open *Neovim client* here" options in Windows File Explorer right-click context menus
+ - "Edit with *Neovim client*", "Open *Neovim client* here" options in File Explorer right-click context menus
 
 ## Configuration files
 
