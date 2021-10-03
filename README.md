@@ -1,16 +1,18 @@
 # nvim-win-shell
 
-Run `*-add.cmd` or `*-remove.cmd` as a Windows Administrator user to add or remove
- - respective Neovim client program ID and file type associations
- - "Edit with *Neovim client*", "Open *Neovim client* here" options in Windows File Explorer right-click context menus
+Neovim file type associations, "Edit with Neovim" / "Open Neovim here" context menu items in Windows File Explorer.
 
-## Configuration files
+## Currently supported clients
+- [Neovim Qt](https://github.com/equalsraf/neovim-qt)
+- [Neoray](https://github.com/hismailbulut/neoray)
 
-- `*-config.cmd` — edit to configure respective Neovim client path, displayed program name in context menus etc.
-- `filetypes.txt` — edit to list of file types that will be associated with the Neovim client
+## Configuration (required)
+
+- `*client*-config.cmd` — edit to configure Neovim client path, displayed program name in context menus etc.
+- `filetypes.txt` — edit to list of file types that will be associated with the client
 
 ## Warning
 
-- Running `*-add.cmd` automatically downloads the propietary [SetUserFTA utility](https://kolbi.cz/blog/2017/10/25/setuserfta-userchoice-hash-defeated-set-file-type-associations-per-user/) from it's author's website. It is downloaded only once and saved in the `common` directory. The utility is executed inside the script to set the file type associations for system and inside `*-remove.cmd` to unset them.
+- Running `*client*-add.cmd` downloads and extracts a freeware, propietary, 3rd-party [SetUserFTA](https://kolbi.cz/blog/2017/10/25/setuserfta-userchoice-hash-defeated-set-file-type-associations-per-user/) utility which is used in scripts for setting and unsetting the file type associations.
 
-- It's advised NOT adding `bat`, `cmd`, `vb` and `vbs` file name extensions to `filetypes.txt`, as changing them will break various third-party scripts that depend on passing these files to `open` utility.
+- It's advised NOT adding `bat`, `cmd`, `vb` and `vbs` file name extensions to `filetypes.txt`, as it will break various third-party scripts that depend on paths of these files being passed to system `open` utility.
