@@ -2,6 +2,9 @@
 setlocal enabledelayedexpansion
 cd /d %~dp0
 
+echo[
+echo Script common\add.cmd has started.
+
 if not exist %~dp0..\%1 (
   echo Specified config file "%1" is not found. Exiting..
   goto :Error
@@ -48,7 +51,7 @@ if "%setFileTypeAssociations%"=="1" (
 )
 
 echo[
-echo Script finished.
+echo Script common\add.cmd has finished.
 endlocal
 exit /B %errorlevel%
 

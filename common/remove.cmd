@@ -1,6 +1,9 @@
 @echo off
 setlocal enabledelayedexpansion
 
+echo[
+echo Script common\remove.cmd has started.
+
 if not exist %~dp0..\%1 (
   echo Specified config file "%1" is not found. Exiting...
   goto :Error
@@ -31,7 +34,7 @@ if "%removeOnlyFileTypeAssociations%"=="0" (
 )
 
 echo[
-echo Script finished.
+echo Script common\remove.cmd has finished.
 endlocal
 exit /B %errorlevel%
 
