@@ -9,7 +9,7 @@
 
 ## Configuration
 
--  **Config. editing required** — `*client*-config.cmd` — Neovim client path, toggling setting context menus and file type associations etc. 
+-  **Config. editing required** — `*client*-config.cmd` — **Neovim client path**, toggling setting context menus and file type associations etc. 
 - [`filetypes.txt`](filetypes.txt) — list of file types associated with the Neovim client
 
 ## Warning
