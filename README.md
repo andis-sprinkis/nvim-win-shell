@@ -15,4 +15,4 @@
 ## Warning
 
 - `*client*-add.cmd` downloads, extracts and runs the 3rd-party, closed-source [`SetUserFTA`](https://kolbi.cz/blog/2017/10/25/setuserfta-userchoice-hash-defeated-set-file-type-associations-per-user/) utility.
-- It's advised *not* adding `bat`, `cmd`, `vb`, `vbs` extensions to [`filetypes.txt`](filetypes.txt), as doing so breaks various scripts that depend on executing these types directly.
+- It's advised **not** adding `bat`, `cmd`, `vb`, `vbs` extensions to [`filetypes.txt`](filetypes.txt), as doing so breaks various scripts that depend on executing these types directly.
