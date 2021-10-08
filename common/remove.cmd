@@ -12,21 +12,21 @@ call %~dp0variables.cmd
 call %~dp0SetUserFTASetup.cmd
 
 echo[
-echo Removing %programProgId% file type associations...
-for /F "tokens=*" %%A in (%programFileAssociationsFile%) do %setUserFTAExe% del .%%A
-echo %programProgId% file type associations removal has completed.
+echo Removing %progID% file type associations...
+for /F "tokens=*" %%A in (%fileTypeAssociationsFilePath%) do %utilSetUserFTAExeFilePath% del .%%A
+echo %progID% file type associations removal has completed.
 
 if "%removeOnlyFileTypeAssociations%"=="0" (
   echo[
-  echo Removing %programProgId% ProgID...
-  reg delete "HKCR\Applications\%programExeFilename%" /f
-  echo %programProgId% ProgID removal has completed.
+  echo Removing %progID% ProgID...
+  reg delete "HKCR\Applications\%programExeFileName%" /f
+  echo %progID% ProgID removal has completed.
 
   echo[
   echo Removing right click context menu items...
-  reg delete "HKCR\AllFilesystemObjects\shell\%contextMenuIconString%" /f
-  reg delete "HKCR\Drive\shell\%contextMenuIconString%" /f
-  reg delete "HKCR\Directory\Background\shell\%contextMenuBackgroundString%" /f
+  reg delete "HKCR\AllFilesystemObjects\shell\%contextMenuIconLabel%" /f
+  reg delete "HKCR\Drive\shell\%contextMenuIconLabel%" /f
+  reg delete "HKCR\Directory\Background\shell\%contextMenuBackgroundLabel%" /f
   echo Right click context menu items removal has completed.
 )
 

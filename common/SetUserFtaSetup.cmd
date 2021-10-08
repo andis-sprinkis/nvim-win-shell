@@ -8,22 +8,22 @@ call %~dp0variables.cmd
 echo[
 echo Checking for SetUserFTA utility...
 
-if not exist %setUserFTADir% (
-  mkdir %setUserFTADir%
+if not exist %utilSetUserFTADirPath% (
+  mkdir %utilSetUserFTADirPath%
 )
 
-if exist %setUserFTAExe% (
+if exist %utilSetUserFTAExeFilePath% (
   echo SetUserFTA found.
   goto :Exit
-) else if exist %setUserFTAZip% (
+) else if exist %utilSetUserFTAZipFilePath% (
   echo Extracting SetUserFTA...
-  call %~dp0unzip.cmd "%setUserFTADir%" "%setUserFTAZip%"
+  call %~dp0unzip.cmd "%utilSetUserFTADirPath%" "%utilSetUserFTAZipFilePath%"
   echo SetUserFTA extracted.
-  rm %setUserFTAZip%
+  rm %utilSetUserFTAZipFilePath%
   goto :Exit
 ) else (
   echo Downloading SetUserFTA...
-  %downloadCMD% %setUserFTAURL% %setUserFTAZip%
+  %downloadCmd% %utilSetUserFTAURL% %utilSetUserFTAZipFilePath%
   echo SetUserFTA downloaded.
   goto :SetUserFTASetup
 )
