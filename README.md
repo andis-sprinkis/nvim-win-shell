@@ -1,7 +1,7 @@
 # nvim-win-shell
 
-- Neovim [file type associations](filetypes.txt)
-- "Edit with Neovim" / "Open Neovim here" context menu items in Windows File Explorer
+- Neovim [file type associations](filetypes.txt).
+- "Edit with Neovim" / "Open Neovim here" context menu items in Windows File Explorer.
 
 ## Supported clients
 - [Neovim Qt](https://github.com/equalsraf/neovim-qt)
