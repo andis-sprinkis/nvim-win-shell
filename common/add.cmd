@@ -42,7 +42,7 @@ if "%setContextMenu%"=="1" (
 )
 
 if "%setFileTypeAssociations%"=="1" (
-  call %~dp0SetUserFTASetup.cmd
+  call %~dp0setuserfta_setup.cmd
 
   echo[
   echo Setting %progID% file type associations...

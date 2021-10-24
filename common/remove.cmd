@@ -12,7 +12,7 @@ if not exist %~dp0..\%1 (
 )
 call %~dp0variables.cmd
 
-call %~dp0SetUserFTASetup.cmd
+call %~dp0setuserfta_setup.cmd
 
 echo[
 echo Removing %progID% file type associations...
