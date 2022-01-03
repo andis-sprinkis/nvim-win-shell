@@ -1,1 +1,1 @@
-call %~dp0common\remove.cmd neoray-config.cmd
+call %~dp0common\remove.cmd neoray_config.cmd
