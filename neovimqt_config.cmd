@@ -4,12 +4,12 @@ set programExeFilePath=D:\\win\\scoop-app\\apps\\neovim\\current\\bin\\%programE
 set iconFilePath=%programExeFilePath%
 set programName=Neovim
 
-:: {client}-add.cmd
+:: {client}_add.cmd
 set setFileTypeAssociations=1
 set setContextMenu=1
 set setContextMenuHKCRAllFileSystemObjects=1
 set setContextMenuHKCRDrive=1
 set setContextMenuHKCRBackground=1
 
-:: {client}-remove.cmd
+:: {client}_remove.cmd
 set removeOnlyFileTypeAssociations=0
