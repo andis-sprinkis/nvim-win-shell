@@ -1,5 +1,5 @@
 :: common options
-set programExeFileName=neoray-win64.exe
+set programExeFileName=Neoray-win64.exe
 set programExeFilePath=D:\\win\\portable-app\\neoray\\%programExeFileName%
 set iconFilePath=%programExeFilePath%
 set programName=Neoray
